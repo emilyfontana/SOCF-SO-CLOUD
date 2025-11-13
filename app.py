@@ -1,10 +1,12 @@
+
+""" - atividade socf 3/11
 from flask import Flask
 
 APP = Flask(__name__)
 
 @APP.get("/")
 def index():
-    return "<h1>Helllo Emily </h1>"
+    return "<h1>Hello Emily </h1>"
 
 
 if __name__ == '__main__':
@@ -13,3 +15,53 @@ if __name__ == '__main__':
 
 #como testar aplicação no codespace
 # gunicorn app:APP no terminal
+
+"""
+
+##Atividade ii cloud
+
+
+from flask import Flask
+import json
+import os
+import platform
+import psutil
+
+APP = Flask(__name__)
+
+@APP.get("/info")
+def info():
+    return json.dumps([
+        {
+            'integrante': [
+                " Emily Pontes Fontana - 4u noite"
+            ] 
+        }
+    ])
+
+@APP.get("/infos")
+def infos():
+    processo = psutil.Process(os.getpid())
+    # process ID
+    pid = processo.pid
+
+    # memória 
+    mem = psutil.virtual_memory().used / 1024**2
+
+    # uso médio de CPU
+    cpu = psutil.cpu_percent(interval=0.1)
+
+    # S.O utilizado
+    sis = platform.platform()
+#retorna infos
+    return (
+        f"| Nome: Emily Pontes Fontana "
+        f"| PID: {pid}\n"
+        f"| Memória usada: {mem:.2f} MB\n"
+        f"| CPU: {cpu:.2f}%\n"
+        f"| Sistema Operacional: {sis}\n"
+    )
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 80))  # port Render
+    APP.run(host="0.0.0.0", port=port)

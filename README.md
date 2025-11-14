@@ -13,20 +13,20 @@ Este repositório contém aplicações desenvolvidas utilizando **Python + Flask
 ```
 gunicorn app:APP
 ```
-- A home aparecerá como:
+- infos aparecerá como:
 ```
 [{"integrante": " Emily Pontes Fontana - 4u noite"}]
 ```
 ---
 
-- Para acessar as informações seguindo as intruções da atividade acesse:
- " https://socf-so-cloud-final.onrender.com/infos "
+- Para acessar as métricas seguindo as intruções da atividade acesse:
+ " https://socf-so-cloud-final.onrender.com/metricas "
 No render para verificar o conteúdo
 
 Ou apenas adicone ao final da URL:
 
 ```
-/infos
+/metricas
 ```
 
 ---

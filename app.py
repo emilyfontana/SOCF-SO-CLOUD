@@ -1,24 +1,5 @@
 
-""" - atividade socf 3/11
-from flask import Flask
-
-APP = Flask(__name__)
-
-@APP.get("/")
-def index():
-    return "<h1>Hello Emily </h1>"
-
-
-if __name__ == '__main__':
-    APP.run(host="0.0.0.0", port = 80)
-
-
-#como testar aplicação no codespace
-# gunicorn app:APP no terminal
-
-"""
-
-##Atividade ii cloud
+#Atividade ii cloud
 
 
 from flask import Flask
@@ -29,13 +10,13 @@ import psutil
 
 APP = Flask(__name__)
 
-@APP.get("/info")
-def info():
+
+@APP.get("/")
+def home():
     return json.dumps([
         {
-            'integrante': [
-                " Emily Pontes Fontana - 4u noite"
-            ] 
+            'integrante': " Emily Pontes Fontana - 4u noite"
+            
         }
     ])
 
@@ -63,5 +44,5 @@ def infos():
     )
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 80))  # port Render
+    port = int(os.environ.get("PORT", 5000))  # port Render
     APP.run(host="0.0.0.0", port=port)

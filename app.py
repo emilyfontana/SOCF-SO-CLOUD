@@ -12,7 +12,7 @@ APP = Flask(__name__)
 
 
 @APP.get("/info")
-def home():
+def info():
     return json.dumps([
         {
             'integrante': " Emily Pontes Fontana - 4u noite"
@@ -21,7 +21,7 @@ def home():
     ])
 
 @APP.get("/metricas")
-def infos():
+def metricas():
     processo = psutil.Process(os.getpid())
     # process ID
     pid = processo.pid

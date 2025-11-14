@@ -11,7 +11,7 @@ import psutil
 APP = Flask(__name__)
 
 
-@APP.get("/")
+@APP.get("/info")
 def home():
     return json.dumps([
         {
@@ -20,7 +20,7 @@ def home():
         }
     ])
 
-@APP.get("/infos")
+@APP.get("/metricas")
 def infos():
     processo = psutil.Process(os.getpid())
     # process ID
